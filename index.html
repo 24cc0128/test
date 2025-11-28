@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Graduation Project Navigation</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: "Noto Sans JP", "Segoe UI", sans-serif;
+    background: #2f2f33;
+    color: #f0f0f0;
+    overflow: hidden;
+  }
+
+  /* ----------------- ナビバー ----------------- */
+  .nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 18px 0;
+    background: rgba(20,20,20,0.85);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    z-index: 100;
+  }
+
+  .nav button {
+    background: none;
+    border: none;
+    color: #e5e5e5;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    padding: 6px 8px;
+  }
+
+  .nav button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: #4fa3ff;
+    transition: width 0.3s;
+  }
+
+  .nav button:hover {
+    color: #4fa3ff;
+  }
+
+  .nav button:hover::after {
+    width: 100%;
+  }
+
+  /* ----------------- ▼ サブメニュー ▼ ----------------- */
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    background: rgba(30,30,30,0.95);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+    display: none;
+    flex-direction: column;
+    width: 160px;
+    backdrop-filter: blur(10px);
+  }
+
+  .dropdown-menu button {
+    padding: 8px 15px;
+    text-align: left;
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: flex;
+    animation: fadeIn 0.25s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ----------------- ページ ----------------- */
+  .page {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    width: 70%;
+    max-width: 900px;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    text-align: left;
+  }
+
+  .page.active {
+    opacity: 1;
+  }
+
+  h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ▼ ナビゲーション -->
+<div class="nav">
+  <!-- 前/次ボタン -->
+  <button onclick="prevPage()">⇦⇦</button>
+  <button onclick="nextPage()">⇨⇨</button>
+
+  <!-- ホーム -->
+  <div class="dropdown">
+    <button>ホーム</button>
+    <div class="dropdown-menu">
+      <button onclick="showPage('purpose')">目的</button>
+      <button onclick="showPage('member1')">メンバー1</button>
+      <button onclick="showPage('member2')">メンバー2</button>
+      <button onclick="showPage('member3')">メンバー3</button>
+    </div>
+  </div>
+
+  <!-- 作品概要 -->
+  <div class="dropdown">
+    <button>作品概要</button>
+    <div class="dropdown-menu">
+      <button onclick="showPage('theme')">テーマ</button>
+      <button onclick="showPage('device')">使用機器</button>
+    </div>
+  </div>
+
+  <!-- 機能紹介 -->
+  <div class="dropdown">
+    <button>機能紹介</button>
+    <div class="dropdown-menu">
+      <button onclick="showPage('step1')">手順1</button>
+      <button onclick="showPage('step2')">手順2</button>
+      <button onclick="showPage('step3')">手順3</button>
+    </div>
+  </div>
+
+  <!-- 発生問題 -->
+  <div class="dropdown">
+    <button>発生問題</button>
+    <div class="dropdown-menu">
+      <button onclick="showPage('prob1')">問題1</button>
+      <button onclick="showPage('prob2')">問題2</button>
+      <button onclick="showPage('prob3')">問題3</button>
+    </div>
+  </div>
+
+  <!-- 解決方法 -->
+  <div class="dropdown">
+    <button>解決方法</button>
+    <div class="dropdown-menu">
+      <button onclick="showPage('sol1')">問題1の解決</button>
+      <button onclick="showPage('sol2')">問題2の解決</button>
+      <button onclick="showPage('sol3')">問題3の解決</button>
+    </div>
+  </div>
+</div>
+
+<!-- ▼ ページ本体 -->
+
+<!-- ホーム -->
+<div id="home" class="page active">
+  <h1>Inspector</h1>
+  <p>Hello everyone !</p>
+</div>
+
+<div id="purpose" class="page">
+  <h1>目的</h1>
+  <p>このプロジェクトの目的を記載します。</p>
+</div>
+
+<div id="member1" class="page">
+  <h1>翁　俊涵</h1>
+  <p>24cc0128</p>
+  <p>好きな食べ物はしめ鯖！</p>
+</div>
+
+<div id="member2" class="page">
+  <h1>銭　樹義</h1>
+  <p>24cc0116</p>
+</div>
+
+<div id="member3" class="page">
+  <h1>ソフヤン　ファリオ</h1>
+  <p>24cc0124</p>
+</div>
+
+<!-- 作品概要 -->
+<div id="theme" class="page">
+  <h1>テーマ</h1>
+  <p>テーマの説明を記載します。</p>
+</div>
+
+<div id="device" class="page">
+  <h1>使用機器</h1>
+  <h3>使用した機器一覧およびサービス一覧を記載します。</h3>
+  <h2>PC　3台</h2>
+  <h2>AWS</h2>
+  <h3>Lambda</h3>
+</div>
+
+<!-- 機能紹介 -->
+<div id="step1" class="page">
+  <h1>手順1</h1>
+  <p>手順1の内容を記載します。</p>
+</div>
+
+<div id="step2" class="page">
+  <h1>手順2</h1>
+  <p>手順2の内容を記載します。</p>
+</div>
+
+<div id="step3" class="page">
+  <h1>手順3</h1>
+  <p>手順3の内容を記載します。</p>
+</div>
+
+<!-- 発生問題 -->
+<div id="prob1" class="page">
+  <h1>問題1</h1>
+  <p>問題1の詳細を記載します。</p>
+</div>
+
+<div id="prob2" class="page">
+  <h1>問題2</h1>
+  <p>問題2の詳細を記載します。</p>
+</div>
+
+<div id="prob3" class="page">
+  <h1>問題3</h1>
+  <p>問題3の詳細を記載します。</p>
+</div>
+
+<!-- 解決方法 -->
+<div id="sol1" class="page">
+  <h1>問題1の解決方法</h1>
+  <p>問題1の解決策を記載します。</p>
+</div>
+
+<div id="sol2" class="page">
+  <h1>問題2の解決方法</h1>
+  <p>問題2の解決策を記載します。</p>
+</div>
+
+<div id="sol3" class="page">
+  <h1>問題3の解決方法</h1>
+  <p>問題3の解決策を記載します。</p>
+</div>
+
+<!-- ▼ JavaScript -->
+<script>
+const pages = [
+  'home', 'purpose', 'member1', 'member2', 'member3',
+  'theme', 'device',
+  'step1', 'step2', 'step3',
+  'prob1', 'prob2', 'prob3',
+  'sol1', 'sol2', 'sol3'
+];
+
+let currentIndex = 0;
+
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  currentIndex = pages.indexOf(id);
+}
+
+function prevPage() {
+  currentIndex = (currentIndex - 1 + pages.length) % pages.length;
+  showPage(pages[currentIndex]);
+}
+
+function nextPage() {
+  currentIndex = (currentIndex + 1) % pages.length;
+  showPage(pages[currentIndex]);
+}
+</script>
+
+</body>
+</html>
