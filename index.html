@@ -13,6 +13,19 @@
     overflow: hidden;
   }
 
+#device {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+#device img {
+  width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+  
 /* Home ページを中央配置・大きい文字にする */
 .home-center {
   display: flex;
@@ -306,30 +319,22 @@
 </div>
 
 <div id="device" class="page">
-<div>
-  <img src="ssk.png"
-       style="
-         position: fixed;
-         right: 0;
-         top: 150px;
-         width: 450px;
-         border-radius: 12px;
-         box-shadow: 0 0 15px rgba(0,0,0,0.6);">
- </div>
- <div>
-  <h1>使用機器</h1>
-  <h3>使用した機器一覧およびサービス一覧を記載します。</h3>
-  <h2>PC　2台</h2>
-  <h2>Grafana</h2>
-  <h2>ClamAV</h2>
-  <h2>Rspamd</h2>
-  <h2>Claude(AI) </h2>
-  <h2>Mailcow</h2>
-  <h2>Nextcloud</h2>
-  <h2>AWS</h2>
-  <h3>EC2       SES           S3</h3>
-  <h3>Cloudwatch    Route53</h3>
- </div>
+  <div class="device-text">
+    <h1>使用機器</h1>
+    <h3>使用した機器一覧およびサービス一覧を記載します。</h3>
+    <h2>PC　2台</h2>
+    <h2>Grafana</h2>
+    <h2>ClamAV</h2>
+    <h2>Rspamd</h2>
+    <h2>Claude(AI) </h2>
+    <h2>Mailcow</h2>
+    <h2>Nextcloud</h2>
+    <h2>AWS</h2>
+    <h3>EC2       SES           S3</h3>
+    <h3>Cloudwatch    Route53</h3>
+  </div>
+
+  <img src="ssk.png" alt="使用機器画像">
 </div>
 
 <div id="step1" class="page">
@@ -408,6 +413,7 @@ function nextPage() {
 </body>
 
 </html>
+
 
 
 
