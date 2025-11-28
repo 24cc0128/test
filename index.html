@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -13,25 +18,24 @@
     overflow: hidden;
   }
 
-/* Home ページを中央配置・大きい文字にする */
-.home-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;   /* 縦中央 */
-  align-items: center;       /* 横中央 */
-  height: 100vh;             /* 画面全体の高さで中央に */
-  text-align: center;
-}
+  /* Home ページを中央配置・大きい文字にする */
+  .home-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
 
-.home-center h1 {
-  font-size: 4rem;   /* タイトルを大きく */
-  margin-bottom: 20px;
-}
+  .home-center h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+  }
 
-.home-center p {
-  font-size: 2rem;   /* 文章も大きめに */
-}
-
+  .home-center p {
+    font-size: 2rem;
+  }
 
   /* ----------------- ▼ 左右端の矢印ナビ ▼ ----------------- */
   .side-arrow {
@@ -50,26 +54,14 @@
     z-index: 200;
   }
 
-  /* 左側 */
-  #arrow-left {
-    left: 0;
-    border-radius: 0 10px 10px 0;
-  }
+  #arrow-left { left: 0; border-radius: 0 10px 10px 0; }
+  #arrow-right { right: 0; border-radius: 10px 0 0 10px; }
 
-  /* 右側 */
-  #arrow-right {
-    right: 0;
-    border-radius: 10px 0 0 10px;
-  }
-
-  /* 近づいたら出現（広いホバー判定） */
-  #arrow-left:hover,
-  #arrow-right:hover {
+  #arrow-left:hover, #arrow-right:hover {
     opacity: 1;
     background: rgba(0,0,0,0.45);
   }
 
-  /* 矢印のスタイル */
   .side-arrow span {
     font-size: 32px;
     color: #fff;
@@ -116,14 +108,9 @@
     color: #4fa3ff;
   }
 
-  .nav button:hover::after {
-    width: 100%;
-  }
+  .nav button:hover::after { width: 100%; }
 
-  /* ▼ ドロップダウン */
-  .dropdown {
-    position: relative;
-  }
+  .dropdown { position: relative; }
 
   .dropdown-menu {
     position: absolute;
@@ -146,10 +133,7 @@
     font-size: 15px;
   }
 
-  .dropdown:hover .dropdown-menu {
-    display: flex;
-    animation: fadeIn 0.25s ease;
-  }
+  .dropdown:hover .dropdown-menu { display: flex; animation: fadeIn 0.25s ease; }
 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-5px); }
@@ -169,36 +153,31 @@
     text-align: left;
   }
 
-  .page.active {
-    opacity: 1;
+  .page.active { opacity: 1; }
+
+  h1 { font-size: 32px; margin-bottom: 10px; }
+  p { font-size: 18px; line-height: 1.8; }
+
+  /* ▼ Flexboxで左右配置（使用機器ページ用） */
+  .flex-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
   }
 
-  h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
-  }
-
-  p {
-    font-size: 18px;
-    line-height: 1.8;
-  }
+  .flex-page div:first-child { flex: 1; }
 </style>
 </head>
 
 <body>
 
-<!-- ▼ 左右端に配置される矢印ナビゲーション -->
-<div id="arrow-left" class="side-arrow" onclick="prevPage()">
-  <span>⟵</span>
-</div>
+<!-- ▼ 左右矢印ナビ -->
+<div id="arrow-left" class="side-arrow" onclick="prevPage()"><span>⟵</span></div>
+<div id="arrow-right" class="side-arrow" onclick="nextPage()"><span>⟶</span></div>
 
-<div id="arrow-right" class="side-arrow" onclick="nextPage()">
-  <span>⟶</span>
-</div>
-
-<!-- ▼ ナビゲーションバー（変更なし） -->
+<!-- ▼ ナビバー -->
 <div class="nav">
-  <!-- ホーム -->
   <div class="dropdown">
     <button>ホーム</button>
     <div class="dropdown-menu">
@@ -213,7 +192,6 @@
     </div>
   </div>
 
-  <!-- 作品概要 -->
   <div class="dropdown">
     <button>作品概要</button>
     <div class="dropdown-menu">
@@ -221,7 +199,6 @@
     </div>
   </div>
 
-  <!-- 機能紹介 -->
   <div class="dropdown">
     <button>機能紹介</button>
     <div class="dropdown-menu">
@@ -231,7 +208,6 @@
     </div>
   </div>
 
-  <!-- 発生問題 -->
   <div class="dropdown">
     <button>発生問題</button>
     <div class="dropdown-menu">
@@ -241,7 +217,6 @@
     </div>
   </div>
 
-  <!-- 解決方法 -->
   <div class="dropdown">
     <button>解決方法</button>
     <div class="dropdown-menu">
@@ -252,7 +227,7 @@
   </div>
 </div>
 
-<!-- ▼ 各ページ内容（省略なし完全版） -->
+<!-- ▼ ページ内容 -->
 <div id="home" class="page active home-center">
   <h1>Inspector</h1>
   <p>Hello everyone !</p>
@@ -268,57 +243,67 @@
   <p>オンプレミスからクラウドへ移行をする会社が増加⇗⇗</p>
   <p>クラウドのためのセキュリティの必要性の増加⇗⇗</p>
 </div>
+
 <div id="purpose" class="page">
   <h1>目的</h1>
   <p>クラウドサーバの構築</p>
   <p>ログおよびメトリクス運用と監視そしてそのセキュリティの運用</p>
   <p>AIを使用した運用状況の報告</p>
 </div>
+
 <div id="goal" class="page">
   <h1>目標</h1>
   <p>EC2で構築したサーバの基本構築と防御手段の導入および実装</p>
   <p>外部ツールによるログおよびメトリクスを監視</p>
   <p>AIの構築および運用</p>
 </div>
+
 <div id="usecase" class="page">
   <h1>ユースケース</h1>
   <p>ユースケースを記載</p>
 </div>
+
 <div id="member1" class="page">
   <h1>翁　俊涵</h1>
   <p>24cc0128</p>
   <p>好きな食べ物はしめ鯖！</p>
-  <img src="os.png" alt="翁 俊涵の写真" style="width:50%; margin-top:20px; border-radius:10px;">
+  <img src="os.png" alt="翁 俊涵の写真" style="width:50%; margin-top:20px; border-radius:10px; float:right;">
 </div>
 
 <div id="member2" class="page">
   <h1>銭　樹義</h1>
   <p>24cc0116</p>
   <p>好きな食べ物は二郎系ラーメン！</p>
-  <img src="chin.jpg" alt="錢 樹 義の写真" style="width:50%; margin-top:20px; border-radius:10px;">
+  <img src="chin.jpg" alt="錢 樹 義の写真" style="width:50%; margin-top:20px; border-radius:10px; float:right;">
 </div>
 
 <div id="member3" class="page">
   <h1>ソフヤン　ファリオ</h1>
   <p>24cc0124</p>
   <p>好きな食べ物はつけ麺！</p>
-  <img src="gekido.jpg" alt="ソフヤンの写真" style="width:50%; margin-top:20px; border-radius:10px;">
+  <img src="gekido.jpg" alt="ソフヤンの写真" style="width:50%; margin-top:20px; border-radius:10px; float:right;">
 </div>
 
-<div id="device" class="page">
-  <h1>使用機器</h1>
-  <h3>使用した機器一覧およびサービス一覧を記載します。</h3>
-  <h2>PC　2台</h2>
-  <h2>Grafana</h2>
-  <h2>ClamAV</h2>
-  <h2>Rspamd</h2>
-  <h2>Claude(AI) </h2>
-  <h2>Mailcow</h2>
-  <h2>Nextcloud</h2>
-  <h2>AWS</h2>
-  <h3>EC2       SES           S3</h3>
-  <h3>Lambda    Cloudwatch    Route53</h3>
-<div>
+<!-- ▼ 使用機器ページ：Flexboxで右に画像配置 -->
+<div id="device" class="page flex-page">
+  <div>
+    <h1>使用機器</h1>
+    <h3>使用した機器一覧およびサービス一覧を記載します。</h3>
+    <h2>PC　2台</h2>
+    <h2>Grafana</h2>
+    <h2>ClamAV</h2>
+    <h2>Rspamd</h2>
+    <h2>Claude(AI)</h2>
+    <h2>Mailcow</h2>
+    <h2>Nextcloud</h2>
+    <h2>AWS</h2>
+    <h3>EC2       SES           S3</h3>
+    <h3>Lambda    Cloudwatch    Route53</h3>
+  </div>
+  <div>
+    <img src="ssk.png" alt="トポロジの写真" style="width:350px; border-radius:10px;">
+  </div>
+</div>
 
 <div id="step1" class="page">
   <h1>手順1</h1>
@@ -394,12 +379,6 @@ function nextPage() {
 </script>
 
 </body>
-
 </html>
-
-
-
-
-
 
 
