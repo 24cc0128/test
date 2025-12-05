@@ -13,6 +13,22 @@
     overflow: hidden;
   }
 
+  #device {
+  position: relative;  /* 子要素の absolute の基準にする */
+}
+
+.device-image {
+  position: absolute;
+  right: 0;              /* ページ右端に固定 */
+  top: 50%;              /* 縦位置は中央 */
+  transform: translateY(-50%);
+  width: 350px;          /* 画像サイズ */
+  max-height: 90%;       /* ページ外にはみ出さない */
+  border-radius: 10px;
+}
+
+.device-list {
+  width: 55%;            /* 画像とリストが並ぶよう調
   /* Home ページを中央配置・大きい文字にする */
   .home-center {
     display: flex;
@@ -327,7 +343,7 @@
   <h3>EC2       SES           S3</h3>
   <h3>Lambda    Cloudwatch    Route53</h3>
   <div>
-    <img src="ssk.png" alt="トポロジの写真" style="width: 350px; border-radius: 10px;">
+    <img class="device-image" src="ssk.png" alt="トポロジの写真">
 </div>
 
 <div id="step1" class="page">
@@ -414,6 +430,7 @@ document.addEventListener('keydown', (event) => {
 
 </body>
 </html>
+
 
 
 
