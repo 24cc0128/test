@@ -200,14 +200,14 @@
   <div class="dropdown">
     <button>ホーム</button>
     <div class="dropdown-menu">
+      <button onclick="showPage('member1')">メンバー1</button>
+      <button onclick="showPage('member2')">メンバー2</button>
+      <button onclick="showPage('member3')">メンバー3</button>
       <button onclick="showPage('theme')">テーマ</button>
       <button onclick="showPage('background')">背景</button>
       <button onclick="showPage('purpose')">目的</button>
       <button onclick="showPage('goal')">目標</button>
       <button onclick="showPage('usecase')">ユースケース</button>
-      <button onclick="showPage('member1')">メンバー1</button>
-      <button onclick="showPage('member2')">メンバー2</button>
-      <button onclick="showPage('member3')">メンバー3</button>
     </div>
   </div>
 
@@ -254,6 +254,27 @@
   <p>Hello everyone !</p>
 </div>
 
+<div id="member1" class="page">
+  <h1>翁　俊涵</h1>
+  <p>24cc0128</p>
+  <p>好きな食べ物はしめ鯖！</p>
+  <img src="os.png" alt="翁 俊涵の写真" style="width:50%; margin-top:20px; border-radius:10px;">
+</div>
+
+<div id="member2" class="page">
+  <h1>銭　樹義</h1>
+  <p>24cc0116</p>
+  <p>好きな食べ物は二郎系ラーメン！</p>
+  <img src="chin.jpg" alt="錢 樹 義の写真" style="width:50%; margin-top:20px; border-radius:10px;">
+</div>
+
+<div id="member3" class="page">
+  <h1>ソフヤン　ファリオ</h1>
+  <p>24cc0124</p>
+  <p>好きな食べ物はつけ麺！</p>
+  <img src="gekido.jpg" alt="ソフヤンの写真" style="width:50%; margin-top:20px; border-radius:10px;">
+</div>
+
 <div id="theme" class="page">
   <h1>テーマ</h1>
   <p>クラウドサーバーのツールによる複数サーバーの監視・防御及びログの出力</p>
@@ -289,26 +310,7 @@
   <p>結果：オンプレミスからクラウドへの移行</p>
 </div>
 
-<div id="member1" class="page">
-  <h1>翁　俊涵</h1>
-  <p>24cc0128</p>
-  <p>好きな食べ物はしめ鯖！</p>
-  <img src="os.png" alt="翁 俊涵の写真" style="width:50%; margin-top:20px; border-radius:10px;">
-</div>
 
-<div id="member2" class="page">
-  <h1>銭　樹義</h1>
-  <p>24cc0116</p>
-  <p>好きな食べ物は二郎系ラーメン！</p>
-  <img src="chin.jpg" alt="錢 樹 義の写真" style="width:50%; margin-top:20px; border-radius:10px;">
-</div>
-
-<div id="member3" class="page">
-  <h1>ソフヤン　ファリオ</h1>
-  <p>24cc0124</p>
-  <p>好きな食べ物はつけ麺！</p>
-  <img src="gekido.jpg" alt="ソフヤンの写真" style="width:50%; margin-top:20px; border-radius:10px;">
-</div>
 
 <div id="device" class="page">
   <h1>使用機器</h1>
@@ -375,7 +377,7 @@
 
 <script>
 const pages = [
-  'home','theme', 'background', 'purpose', 'goal', 'usecase', 'member1', 'member2', 'member3',
+  'member1', 'member2', 'member3','home','theme', 'background', 'purpose', 'goal', 'usecase',
   'device',
   'step1', 'step2', 'step3',
   'prob1', 'prob2', 'prob3',
@@ -412,4 +414,5 @@ document.addEventListener('keydown', (event) => {
 
 </body>
 </html>
+
 
