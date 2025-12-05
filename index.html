@@ -13,25 +13,24 @@
     overflow: hidden;
   }
 
-/* Home ページを中央配置・大きい文字にする */
-.home-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;   /* 縦中央 */
-  align-items: center;       /* 横中央 */
-  height: 100vh;             /* 画面全体の高さで中央に */
-  text-align: center;
-}
+  /* Home ページを中央配置・大きい文字にする */
+  .home-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* 縦中央 */
+    align-items: center;       /* 横中央 */
+    height: 100vh;             /* 画面全体の高さで中央に */
+    text-align: center;
+  }
 
-.home-center h1 {
-  font-size: 4rem;   /* タイトルを大きく */
-  margin-bottom: 20px;
-}
+  .home-center h1 {
+    font-size: 4rem;   /* タイトルを大きく */
+    margin-bottom: 20px;
+  }
 
-.home-center p {
-  font-size: 2rem;   /* 文章も大きめに */
-}
-
+  .home-center p {
+    font-size: 2rem;   /* 文章も大きめに */
+  }
 
   /* ----------------- ▼ 左右端の矢印ナビ ▼ ----------------- */
   .side-arrow {
@@ -196,9 +195,8 @@
   <span>⟶</span>
 </div>
 
-<!-- ▼ ナビゲーションバー（変更なし） -->
+<!-- ▼ ナビゲーションバー -->
 <div class="nav">
-  <!-- ホーム -->
   <div class="dropdown">
     <button>ホーム</button>
     <div class="dropdown-menu">
@@ -213,7 +211,6 @@
     </div>
   </div>
 
-  <!-- 作品概要 -->
   <div class="dropdown">
     <button>作品概要</button>
     <div class="dropdown-menu">
@@ -221,17 +218,17 @@
     </div>
   </div>
 
-  <!-- 機能紹介 -->
+  <!-- 機能紹介を検証結果に変更 -->
   <div class="dropdown">
     <button>検証結果</button>
     <div class="dropdown-menu">
+      <!-- 手順を結果に変更 -->
       <button onclick="showPage('step1')">結果1</button>
       <button onclick="showPage('step2')">結果2</button>
       <button onclick="showPage('step3')">結果3</button>
     </div>
   </div>
 
-  <!-- 発生問題 -->
   <div class="dropdown">
     <button>発生問題</button>
     <div class="dropdown-menu">
@@ -241,7 +238,6 @@
     </div>
   </div>
 
-  <!-- 解決方法 -->
   <div class="dropdown">
     <button>解決方法</button>
     <div class="dropdown-menu">
@@ -268,22 +264,26 @@
   <p>オンプレミスからクラウドへ移行をする会社が増加⇗⇗</p>
   <p>クラウドのためのセキュリティの必要性の増加⇗⇗</p>
 </div>
+
 <div id="purpose" class="page">
   <h1>目的</h1>
   <p>クラウドサーバの構築</p>
   <p>ログおよびメトリクス運用と監視そしてそのセキュリティの運用</p>
   <p>AIを使用した運用状況の報告</p>
 </div>
+
 <div id="goal" class="page">
   <h1>目標</h1>
   <p>EC2で構築したサーバの基本構築と防御手段の導入および実装</p>
   <p>外部ツールによるログおよびメトリクスを監視</p>
   <p>AIの構築および運用</p>
 </div>
+
 <div id="usecase" class="page">
   <h1>ユースケース</h1>
   <p>ユースケースを記載</p>
 </div>
+
 <div id="member1" class="page">
   <h1>翁　俊涵</h1>
   <p>24cc0128</p>
@@ -318,8 +318,10 @@
   <h2>AWS</h2>
   <h3>EC2       SES           S3</h3>
   <h3>Lambda    Cloudwatch    Route53</h3>
-<div>
-<img src="ssk.png" alt="トポロジの写真" style="width: 350px; border-radius: 10px;">]
+  <div>
+    <img src="ssk.png" alt="トポロジの写真" style="width: 350px; border-radius: 10px;">
+  </div>
+</div>
 
 <div id="step1" class="page">
   <h1>結果1</h1>
@@ -392,10 +394,16 @@ function nextPage() {
   currentIndex = (currentIndex + 1) % pages.length;
   showPage(pages[currentIndex]);
 }
+
+// ▼ キーボード矢印でページ切り替え
+document.addEventListener('keydown', (event) => {
+  if(event.key === "ArrowLeft") {
+    prevPage();
+  } else if(event.key === "ArrowRight") {
+    nextPage();
+  }
+});
 </script>
 
 </body>
-
 </html>
-
-
