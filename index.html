@@ -334,23 +334,49 @@
 
 <div id="device" class="page">
   <h1>使用機器</h1>
-    <div style="display: flex;">
-  　<img src="ssk.png" alt="トポロジの写真"
-       style="width: 350px; border-radius: 10px; margin-left: auto;">
-  </div>
   <h3>使用した機器一覧およびサービス一覧を記載します。</h3>
-  <h2>PC　2台</h2>
-  <h2>Grafana</h2>
-  <h2>ClamAV</h2>
-  <h2>Rspamd</h2>
-  <h2>Claude(AI) </h2>
-  <h2>Mailcow</h2>
-  <h2>Nextcloud</h2>
-  <h2>AWS</h2>
-  <h3>EC2       SES           S3</h3>
-  <h3>Lambda    Cloudwatch    Route53</h3>
-</div>
 
+  <!-- 横並びレイアウト -->
+  <div class="device-layout">
+    
+    <!-- 左：テキスト -->
+    <div class="device-text">
+      <h2>PC　2台</h2>
+      <h2>Grafana</h2>
+      <h2>ClamAV</h2>
+      <h2>Rspamd</h2>
+      <h2>Claude(AI)</h2>
+      <h2>Mailcow</h2>
+      <h2>Nextcloud</h2>
+      <h2>AWS</h2>
+      <h3>EC2　SES　S3</h3>
+      <h3>Lambda　Cloudwatch　Route53</h3>
+    </div>
+
+    <!-- 右：画像 -->
+    <div class="device-image">
+      <img src="ssk.png" alt="トポロジの写真">
+    </div>
+
+  </div>
+</div>
+<style>
+.device-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.device-text {
+  width: 60%;
+}
+
+.device-image img {
+  width: 350px;
+  border-radius: 10px;
+}
+</style>
 <div id="step1" class="page">
   <h1>結果1</h1>
   <p>結果1の内容を記載します。</p>
@@ -435,6 +461,7 @@ document.addEventListener('keydown', (event) => {
 
 </body>
 </html>
+
 
 
 
