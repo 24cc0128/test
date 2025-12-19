@@ -323,7 +323,8 @@ p {
       <button onclick="showPage('step2-1')">結果2-1</button>
       <button onclick="showPage('step2-2')">結果2-2</button>
       <button onclick="showPage('step2-3')">結果2-3</button>
-      <button onclick="showPage('step3')">結果3</button>
+      <button onclick="showPage('step3-1')">結果3-1</button>
+      <button onclick="showPage('step3-2')">結果3-2</button>
       <button onclick="showPage('step4-1')">結果4-1</button>
       <button onclick="showPage('step4-2')">結果4-2</button>
       <button onclick="showPage('step4-3')">結果4-3</button>
@@ -490,12 +491,16 @@ p {
   <img src="blocked sended mail.png" class="result-img">
 </div>
 
-<div id="step3" class="page">
+<div id="step3-1" class="page">
   <h1>結果3</h1>
-  <h2>異常なファイルのアップロード</h2>
+  <h2>通常のファイルのアップロード</h2>
+  <img src="normal file.png" class="result-img">
   <p>result</p>
 </div>
-
+<div id="step3-2" class="page">
+  <h2>異常なファイルのアップロード</h2>
+  <img src="block file.png" class="result-img">
+</div>
 <div id="step4-1" class="page">
   <h1>結果4</h1>
   <h1>AIの動作</h1>
@@ -589,6 +594,7 @@ document.addEventListener('keydown', (event) => {
 
 </body>
 </html>
+
 
 
 
