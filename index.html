@@ -6,6 +6,22 @@
 
 <style>
 
+.member-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.member-text {
+  width: 55%;
+}
+
+.member-photo img {
+  width: 300px;
+  border-radius: 10px;
+}
+  
   #device {
   position: relative;  /* 子要素の absolute の基準にする */
 }
@@ -274,24 +290,47 @@
 </div>
 
 <div id="member1" class="page">
-  <h1>翁　俊涵</h1>
-  <p>24cc0128</p>
-  <p>好きな食べ物はしめ鯖！</p>
-  <img src="os.png" alt="翁 俊涵の写真" style="width:50%; margin-top:20px; border-radius:10px;">
+  <div class="member-layout">
+
+    <!-- 左：テキスト -->
+    <div class="member-text">
+      <h1>翁　俊涵</h1>
+      <p>24cc0128</p>
+      <p>好きな食べ物はしめ鯖！</p>
+    </div>
+
+    <!-- 右：写真 -->
+    <div class="member-photo">
+      <img src="os.png" alt="翁 俊涵の写真">
+    </div>
+
+  </div>
 </div>
 
 <div id="member2" class="page">
-  <h1>銭　樹義</h1>
-  <p>24cc0116</p>
-  <p>好きな食べ物は二郎系ラーメン！</p>
-  <img src="chin.jpg" alt="錢 樹 義の写真" style="width:50%; margin-top:20px; border-radius:10px;">
+  <div class="member-layout">
+    <div class="member-text">
+      <h1>銭　樹義</h1>
+      <p>24cc0116</p>
+      <p>好きな食べ物は二郎系ラーメン！</p>
+    </div>
+    <div class="member-photo">
+      <img src="chin.jpg">
+    </div>
+  </div>
 </div>
 
 <div id="member3" class="page">
-  <h1>ソフヤン　ファリオ</h1>
-  <p>24cc0124</p>
-  <p>好きな食べ物はつけ麺！</p>
-  <img src="gekido.jpg" alt="ソフヤンの写真" style="width:50%; margin-top:20px; border-radius:10px;">
+  <div class="member-layout">
+    <div class="member-text">
+      <h1>ソフヤン　ファリオ</h1>
+      <p>24cc0124</p>
+      <p>好きな食べ物はつけ麺！</p>
+    </div>
+    <div class="member-photo">
+      <img src="gekido.jpg">
+    </div>
+  </div>
 </div>
 
 <div id="theme" class="page">
@@ -479,6 +518,7 @@ document.addEventListener('keydown', (event) => {
 
 </body>
 </html>
+
 
 
 
