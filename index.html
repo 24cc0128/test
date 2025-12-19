@@ -11,216 +11,225 @@
   justify-content: space-between;
   align-items: center;
   gap: 40px;
+  height: calc(100vh - 200px);
 }
 
 .member-text {
-  width: 55%;
+  width: 50%;
 }
 
+/* ONLY member photo container - larger */
+.member-photo {
+  width: 45%;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* ONLY member photo images - fills the container */
 .member-photo img {
-  width: 300px;
-  border-radius: 10px;
-}
-  
-  #device {
-  position: relative;  /* 子要素の absolute の基準にする */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
-.device-image {
-  position: absolute;
-  right: 0;              /* ページ右端に固定 */
-  top: 50%;              /* 縦位置は中央 */
+#device {
+  position: relative;
+}
+
+.device-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.device-text {
+  width: 60%;
+}
+
+.device-image img {
+  width: 350px;
+  border-radius: 10px;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans JP", "Segoe UI", sans-serif;
+  background: #2f2f33;
+  color: #f0f0f0;
+  overflow: hidden;
+}
+
+.home-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.home-center h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.home-center p {
+  font-size: 2rem;
+}
+
+.side-arrow {
+  position: fixed;
+  top: 50%;
   transform: translateY(-50%);
-  width: 350px;          /* 画像サイズ */
-  max-height: 90%;       /* ページ外にはみ出さない */
-  border-radius: 10px;
+  width: 60px;
+  height: 160px;
+  background: rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.35s ease, background 0.3s ease;
+  cursor: pointer;
+  z-index: 200;
 }
 
-.device-list {
-  width: 55%;            /* 画像とリストが並ぶよう調整 */
+#arrow-left {
+  left: 0;
+  border-radius: 0 10px 10px 0;
 }
 
-  body {
-    margin: 0;
-    font-family: "Noto Sans JP", "Segoe UI", sans-serif;
-    background: #2f2f33;
-    color: #f0f0f0;
-    overflow: hidden;
-  }
+#arrow-right {
+  right: 0;
+  border-radius: 10px 0 0 10px;
+}
 
-  /* Home ページを中央配置・大きい文字にする */
-  .home-center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;   /* 縦中央 */
-    align-items: center;       /* 横中央 */
-    height: 100vh;             /* 画面全体の高さで中央に */
-    text-align: center;
-  }
+#arrow-left:hover,
+#arrow-right:hover {
+  opacity: 1;
+  background: rgba(0,0,0,0.45);
+}
 
-  .home-center h1 {
-    font-size: 4rem;   /* タイトルを大きく */
-    margin-bottom: 20px;
-  }
+.side-arrow span {
+  font-size: 32px;
+  color: #fff;
+  user-select: none;
+}
 
-  .home-center p {
-    font-size: 2rem;   /* 文章も大きめに */
-  }
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 18px 0;
+  background: rgba(20,20,20,0.85);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  z-index: 100;
+}
 
-  /* ----------------- ▼ 左右端の矢印ナビ ▼ ----------------- */
-  .side-arrow {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 60px;
-    height: 160px;
-    background: rgba(0,0,0,0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.35s ease, background 0.3s ease;
-    cursor: pointer;
-    z-index: 200;
-  }
+.nav button {
+  background: none;
+  border: none;
+  color: #e5e5e5;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  padding: 6px 8px;
+}
 
-  /* 左側 */
-  #arrow-left {
-    left: 0;
-    border-radius: 0 10px 10px 0;
-  }
+.nav button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #4fa3ff;
+  transition: width 0.3s;
+}
 
-  /* 右側 */
-  #arrow-right {
-    right: 0;
-    border-radius: 10px 0 0 10px;
-  }
+.nav button:hover {
+  color: #4fa3ff;
+}
 
-  /* 近づいたら出現（広いホバー判定） */
-  #arrow-left:hover,
-  #arrow-right:hover {
-    opacity: 1;
-    background: rgba(0,0,0,0.45);
-  }
+.nav button:hover::after {
+  width: 100%;
+}
 
-  /* 矢印のスタイル */
-  .side-arrow span {
-    font-size: 32px;
-    color: #fff;
-    user-select: none;
-  }
+.dropdown {
+  position: relative;
+}
 
-  /* ----------------- ▼ ナビバー（ドロップダウン） ----------------- */
-  .nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    padding: 18px 0;
-    background: rgba(20,20,20,0.85);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255,255,255,0.12);
-    z-index: 100;
-  }
+.dropdown-menu {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background: rgba(30,30,30,0.95);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 10px 0;
+  display: none;
+  flex-direction: column;
+  width: 160px;
+  backdrop-filter: blur(10px);
+}
 
-  .nav button {
-    background: none;
-    border: none;
-    color: #e5e5e5;
-    font-size: 16px;
-    cursor: pointer;
-    position: relative;
-    padding: 6px 8px;
-  }
+.dropdown-menu button {
+  padding: 8px 15px;
+  text-align: left;
+  width: 100%;
+  font-size: 15px;
+}
 
-  .nav button::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0%;
-    height: 2px;
-    background: #4fa3ff;
-    transition: width 0.3s;
-  }
+.dropdown:hover .dropdown-menu {
+  display: flex;
+  animation: fadeIn 0.25s ease;
+}
 
-  .nav button:hover {
-    color: #4fa3ff;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
-  .nav button:hover::after {
-    width: 100%;
-  }
+.page {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  width: 70%;
+  max-width: 1000px;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
 
-  /* ▼ ドロップダウン */
-  .dropdown {
-    position: relative;
-  }
+.page.active {
+  opacity: 1;
+  pointer-events: auto;
+}
 
-  .dropdown-menu {
-    position: absolute;
-    top: 30px;
-    left: 0;
-    background: rgba(30,30,30,0.95);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 8px;
-    padding: 10px 0;
-    display: none;
-    flex-direction: column;
-    width: 160px;
-    backdrop-filter: blur(10px);
-  }
+h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
 
-  .dropdown-menu button {
-    padding: 8px 15px;
-    text-align: left;
-    width: 100%;
-    font-size: 15px;
-  }
-
-  .dropdown:hover .dropdown-menu {
-    display: flex;
-    animation: fadeIn 0.25s ease;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ▼ ページ切り替え部分 */
-  .page {
-    position: absolute;
-    top: 120px;
-    left: 50%;
-    width: 70%;
-    max-width: 1000px;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-  }
-
-  .page.active {
-    opacity: 1;
-  }
-
-  h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
-  }
-
-  p {
-    font-size: 18px;
-    line-height: 1.8;
-  }
+p {
+  font-size: 18px;
+  line-height: 1.8;
+}
 </style>
 </head>
 
 <body>
 
-<!-- ▼ 左右端に配置される矢印ナビゲーション -->
 <div id="arrow-left" class="side-arrow" onclick="prevPage()">
   <span>⟵</span>
 </div>
@@ -229,7 +238,7 @@
   <span>⟶</span>
 </div>
 
-<!-- ▼ ナビゲーションバー -->
+<!-- ナビゲーションバー -->
 <div class="nav">
   <div class="dropdown">
     <button>ホーム</button>
@@ -252,11 +261,9 @@
     </div>
   </div>
 
-  <!-- 機能紹介を検証結果に変更 -->
   <div class="dropdown">
     <button>検証結果</button>
     <div class="dropdown-menu">
-      <!-- 手順を結果に変更 -->
       <button onclick="showPage('step1')">結果1</button>
       <button onclick="showPage('step2-1')">結果2-1</button>
       <button onclick="showPage('step2-2')">結果2-2</button>
@@ -285,7 +292,7 @@
   </div>
 </div>
 
-<!-- ▼ 各ページ内容（省略なし完全版） -->
+<!-- 各ページ内容 -->
 <div id="home" class="page active home-center">
   <h1>Inspector</h1>
   <p>Hello everyone !</p>
@@ -293,19 +300,14 @@
 
 <div id="member1" class="page">
   <div class="member-layout">
-
-    <!-- 左：テキスト -->
     <div class="member-text">
       <h1>翁　俊涵</h1>
       <p>24cc0128</p>
       <p>好きな食べ物はしめ鯖！</p>
     </div>
-
-    <!-- 右：写真 -->
     <div class="member-photo">
       <img src="os.png" alt="翁 俊涵の写真">
     </div>
-
   </div>
 </div>
 
@@ -317,7 +319,7 @@
       <p>好きな食べ物は二郎系ラーメン！</p>
     </div>
     <div class="member-photo">
-      <img src="chin.jpg">
+      <img src="chin.jpg" alt="銭 樹義の写真">
     </div>
   </div>
 </div>
@@ -330,7 +332,7 @@
       <p>好きな食べ物はつけ麺！</p>
     </div>
     <div class="member-photo">
-      <img src="gekido.jpg">
+      <img src="gekido.jpg" alt="ソフヤン ファリオの写真">
     </div>
   </div>
 </div>
@@ -383,16 +385,10 @@
   <h3>結果：オンプレミスからクラウドへの移行</h3>
 </div>
 
-
-
 <div id="device" class="page">
   <h1>使用機器</h1>
   <h3>使用した機器一覧およびサービス一覧を記載します。</h3>
-
-  <!-- 横並びレイアウト -->
   <div class="device-layout">
-    
-    <!-- 左：テキスト -->
     <div class="device-text">
       <h2>PC　2台</h2>
       <h2>Grafana</h2>
@@ -405,31 +401,12 @@
       <h3>EC2　SES　S3</h3>
       <h3>Lambda　Cloudwatch　Route53</h3>
     </div>
-
-    <!-- 右：画像 -->
     <div class="device-image">
       <img src="ssk.png" alt="トポロジの写真">
     </div>
-
   </div>
 </div>
-<style>
-.device-layout {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-}
 
-.device-text {
-  width: 60%;
-}
-
-.device-image img {
-  width: 350px;
-  border-radius: 10px;
-}
-</style>
 <div id="step1" class="page">
   <h1>結果1</h1>
   <h2>通常メールの送信</h2>
@@ -441,16 +418,19 @@
   <h1>結果2</h1>
   <h1>異常なメールの送信</h1>
   <h2>フィッシングリンク付きのメールを送信</h2>
-  <img src="send phising link.png">
+  <img src="send phising link.png" style="width:50%; margin-top:20px; border-radius:10px;">
 </div>
+
 <div id="step2-2" class="page">
- <h2>メール送信の失敗</h2>
- <img src="blocked mail does not come.png" style="width:100%; margin-top:20px; border-radius:10px;">
+  <h2>メール送信の失敗</h2>
+  <img src="blocked mail does not come.png" style="width:100%; margin-top:20px; border-radius:10px;">
 </div>
+
 <div id="step2-3" class="page">
- <h2>メールはブロックされた</h2>
- <img src="blocked sended mail.png">
+  <h2>メールはブロックされた</h2>
+  <img src="blocked sended mail.png" style="width:50%; margin-top:20px; border-radius:10px;">
 </div>
+
 <div id="step3" class="page">
   <h1>結果3</h1>
   <h2>異常なファイルのアップロード</h2>
@@ -520,7 +500,6 @@ function nextPage() {
   showPage(pages[currentIndex]);
 }
 
-// ▼ キーボード矢印でページ切り替え
 document.addEventListener('keydown', (event) => {
   if(event.key === "ArrowLeft") {
     prevPage();
@@ -532,29 +511,3 @@ document.addEventListener('keydown', (event) => {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
