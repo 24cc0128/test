@@ -332,6 +332,7 @@ p {
       <button onclick="showPage('step4-5')">結果4-5</button>
       <button onclick="showPage('step4-6')">結果4-6</button>
       <button onclick="showPage('step4-7')">結果4-7</button>
+      <button onclick="showPage('step4-8')">結果4-8</button>
     </div>
   </div>
 
@@ -506,32 +507,36 @@ p {
 <div id="step4-1" class="page">
   <h1>結果4</h1>
   <h1>AIの動作</h1>
-  <h2>AIによる要約</h2>
-  <img src="ai_summary_1.png" class="result-img">
+  <h2>AIによる日次報告書</h2>
+  <img src="grafana_ai_alert_report.png" class="result-img">
 </div>
 <div id="step4-2" class="page">
-  <h2>要約</h2>
-  <img src="ai_summary_2.png" class="result-img">
+  <h2>発生したアラート</h2>
+  <img src="grafana_ai_alert_report_2.png" class="result-img">
 </div>
 
 <div id="step4-3" class="page">
-  <h2>要約</h2>
-  <img src="ai_summary_3.png" class="result-img">
+  <h2>アラートに対するおすすめの対処法の提供</h2>
+  <img src="grafana_ai_alert_report_3.png" class="result-img">
 </div>
 
 <div id="step4-4" class="page">
-  <h2>要約</h2>
-  <img src="ai_summary_4.png" class="result-img">
+  <h2>ログ</h2>
+  <img src="grafana_ai_alert_report_5.png" class="result-img">
 </div>
 <div id="step4-5" class="page">
+  <h2>全体の要約</h2>
+  <img src="grafana_ai_alert_report_6.png" class="result-img">
+</div>
+<div id="step4-6" class="page">
   <h2>AIによる管理者へのメール送信 </h2>
   <img src="summary mail.png" class="result-img">
 </div>
-<div id="step4-6" class="page">
+<div id="step4-7" class="page">
   <h2>メール送信</h2>
   <img src="sum1.png" class="result-img">
 </div>
-<div id="step4-7" class="page">
+<div id="step4-8" class="page">
   <h2>メール送信</h2>
   <img src="sum2.png" class="result-img">
 </div>
@@ -569,7 +574,7 @@ p {
 const pages = [
   'home','member1', 'member2', 'member3','theme', 'background', 'purpose', 'goal', 'usecase',
   'device',
-  'step1', 'step2-1','step2-2','step2-3','step3','step4-1','step4-2','step4-3','step4-4','step4-5','step4-6','step4-7',
+  'step1', 'step2-1','step2-2','step2-3','step3','step4-1','step4-2','step4-3','step4-4','step4-5','step4-6','step4-7','step4-8',
   'prob1', 'prob2', 'prob3',
   'sol1', 'sol2', 'sol3'
 ];
@@ -603,6 +608,7 @@ document.addEventListener('keydown', (event) => {
 
 </body>
 </html>
+
 
 
 
