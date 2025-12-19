@@ -860,25 +860,34 @@ const pageTitles = [
   '解決1', '解決2', '解決3'
 ];
 
-// Element images - UPDATE THESE PATHS to your PNG files
+// Element images - NEW ORDER: Anemo → Geo → Electro → Dendro → Hydro → Pyro → Cryo
 const elements = [
-  { name: 'Pyro', class: 'pyro', color: '#ff6b4a', img: 'Pyro.png' },
-  { name: 'Hydro', class: 'hydro', color: '#4fc3f7', img: 'Hydro.png' },
   { name: 'Anemo', class: 'anemo', color: '#80cbc4', img: 'Anemo.png' },
+  { name: 'Geo', class: 'geo', color: '#ffcc80', img: 'Geo.png' },
   { name: 'Electro', class: 'electro', color: '#ce93d8', img: 'Electro.png' },
   { name: 'Dendro', class: 'dendro', color: '#aed581', img: 'Dendro.png' },
-  { name: 'Cryo', class: 'cryo', color: '#b3e5fc', img: 'Cryo.png' },
-  { name: 'Geo', class: 'geo', color: '#ffcc80', img: 'Geo.png' }
+  { name: 'Hydro', class: 'hydro', color: '#4fc3f7', img: 'Hydro.png' },
+  { name: 'Pyro', class: 'pyro', color: '#ff6b4a', img: 'Pyro.png' },
+  { name: 'Cryo', class: 'cryo', color: '#b3e5fc', img: 'Cryo.png' }
 ];
+
+// 30 pages ÷ 7 elements = ~4-5 pages per element
+// Distribution: 5, 4, 4, 4, 4, 4, 5 = 30 pages
+const elementDistribution = [5, 4, 4, 4, 4, 4, 5];
 
 let currentIndex = 0;
 let revealedPages = new Set([0]);
 
-// Get element for a given page index
+// Get element for a given page index - using custom distribution
 function getElementForIndex(index) {
-  const pagesPerElement = Math.ceil(pages.length / elements.length);
-  const elementIndex = Math.floor(index / pagesPerElement);
-  return elements[Math.min(elementIndex, elements.length - 1)];
+  let count = 0;
+  for (let i = 0; i < elementDistribution.length; i++) {
+    count += elementDistribution[i];
+    if (index < count) {
+      return elements[i];
+    }
+  }
+  return elements[elements.length - 1];
 }
 
 // Generate progress bar with element icons
@@ -1034,4 +1043,3 @@ document.addEventListener('DOMContentLoaded', generateProgressBar);
 
 </body>
 </html>
-
