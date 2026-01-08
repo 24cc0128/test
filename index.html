@@ -687,16 +687,6 @@ p {
     </div>
   </div>
 
-  <div class="dropdown">
-    <button>answer</button>
-    <div class="dropdown-menu">
-      <button onclick="showPage('sol1', true)">4</button>
-      <button onclick="showPage('sol2', true)">5</button>
-      <button onclick="showPage('sol3', true)">6</button>
-    </div>
-  </div>
-</div>
-
 <!-- Page Counter with Element Display -->
 <div class="page-counter">
   <div class="current-element-icon" id="current-element-icon"></div>
@@ -903,17 +893,55 @@ p {
 </div>
 
 <div id="prob1" class="page">
-  <h1>AWSでかかったコスト</h1>
-  <h2>10月</h2>
-  <p>Registrar $15.00(¥2351)</p>
-  <p>VirtualPrivateCloud $5.24(¥821)</p>
-  <p>ElasticComputeCloud $3.03(¥475)</p>
-  <p>Route53 $0.52(¥82)</p>
-  <p>税 $2.38(¥373)</p>
-  <p>合計 $26.17(¥4102)</p>
+ <h1>AWSでかかったコスト</h1>
+ <h2>10月</h2>
+ <div style="font-family: Arial, sans-serif; width: 460px; font-size: 18px;">
+  <div style="display: flex; font-weight: bold; border-bottom: 2px solid #000; padding-bottom: 6px; margin-bottom: 10px;">
+    <span style="width: 240px;">サービス名</span>
+    <span style="width: 110px; text-align: right;">金額 (USD)</span>
+    <span style="width: 110px; text-align: right;">金額 (JPY)</span>
+  </div>
+
+  <div style="display: flex; margin-bottom: 6px;">
+    <span style="width: 240px;">Registrar</span>
+    <span style="width: 110px; text-align: right;">$15.00</span>
+    <span style="width: 110px; text-align: right;">¥2351</span>
+  </div>
+
+  <div style="display: flex; margin-bottom: 6px;">
+    <span style="width: 240px;">VirtualPrivateCloud</span>
+    <span style="width: 110px; text-align: right;">$5.24</span>
+    <span style="width: 110px; text-align: right;">¥821</span>
+  </div>
+
+  <div style="display: flex; margin-bottom: 6px;">
+    <span style="width: 240px;">ElasticComputeCloud</span>
+    <span style="width: 110px; text-align: right;">$3.03</span>
+    <span style="width: 110px; text-align: right;">¥475</span>
+  </div>
+
+  <div style="display: flex; margin-bottom: 6px;">
+    <span style="width: 240px;">Route53</span>
+    <span style="width: 110px; text-align: right;">$0.52</span>
+    <span style="width: 110px; text-align: right;">¥82</span>
+  </div>
+
+  <div style="display: flex; margin-bottom: 6px;">
+    <span style="width: 240px;">税</span>
+    <span style="width: 110px; text-align: right;">$2.38</span>
+    <span style="width: 110px; text-align: right;">¥373</span>
+  </div>
+
+  <div style="display: flex; font-weight: bold; border-top: 2px solid #000; margin-top: 10px; padding-top: 6px;">
+    <span style="width: 240px;">合計</span>
+    <span style="width: 110px; text-align: right;">$26.17</span>
+    <span style="width: 110px; text-align: right;">¥4102</span>
+  </div>
+ </div>
 </div>
 
 <div id="prob2" class="page">
+ <h2>11月</h2>
  <div style="font-family: Arial, sans-serif; width: 460px; font-size: 18px;">
   <div style="display: flex; font-weight: bold; border-bottom: 2px solid #000; padding-bottom: 6px; margin-bottom: 10px;">
     <span style="width: 240px;">サービス名</span>
@@ -966,38 +994,65 @@ p {
 </div>
 
 <div id="prob3" class="page">
-  <h2>12月</h2>
-  <p>ElasticComputeCloud $13.62(¥2138)</p>
-  <p>VirtualPrivateCloud $2.87(¥451)</p>
-  <p>CloudWatch $1.13(¥177)</p>
-  <p>Route53 $0.51(¥80)</p>
-  <p>SimpleEmailService $0.01(¥2)</p>
-  <p>税 $1.81(¥284)</p>
-  <p>合計 $19.95(¥3132)</p>
+ <h2>12月</h2>
+ <div style="font-family: Arial, sans-serif; width: 460px; font-size: 18px;">
+  <div style="display: flex; font-weight: bold; border-bottom: 2px solid #000; padding-bottom: 6px; margin-bottom: 10px;">
+    <span style="width: 240px;">サービス名</span>
+    <span style="width: 110px; text-align: right;">金額 (USD)</span>
+    <span style="width: 110px; text-align: right;">金額 (JPY)</span>
+  </div>
+
+  <div style="display: flex; margin-bottom: 6px;">
+    <span style="width: 240px;">ElasticComputeCloud</span>
+    <span style="width: 110px; text-align: right;">$13.62</span>
+    <span style="width: 110px; text-align: right;">¥2138</span>
+  </div>
+
+  <div style="display: flex; margin-bottom: 6px;">
+    <span style="width: 240px;">VirtualPrivateCloud</span>
+    <span style="width: 110px; text-align: right;">$2.87</span>
+    <span style="width: 110px; text-align: right;">¥451</span>
+  </div>
+
+  <div style="display: flex; margin-bottom: 6px;">
+    <span style="width: 240px;">CloudWatch</span>
+    <span style="width: 110px; text-align: right;">$1.13</span>
+    <span style="width: 110px; text-align: right;">¥177</span>
+  </div>
+
+  <div style="display: flex; margin-bottom: 6px;">
+    <span style="width: 240px;">Route53</span>
+    <span style="width: 110px; text-align: right;">$0.51</span>
+    <span style="width: 110px; text-align: right;">¥80</span>
+  </div>
+
+  <div style="display: flex; margin-bottom: 6px;">
+    <span style="width: 240px;">SimpleEmailService</span>
+    <span style="width: 110px; text-align: right;">$0.01</span>
+    <span style="width: 110px; text-align: right;">¥2</span>
+  </div>
+
+  <div style="display: flex; margin-bottom: 6px;">
+    <span style="width: 240px;">税</span>
+    <span style="width: 110px; text-align: right;">$1.81</span>
+    <span style="width: 110px; text-align: right;">¥284</span>
+  </div>
+
+  <div style="display: flex; font-weight: bold; border-top: 2px solid #000; margin-top: 10px; padding-top: 6px;">
+    <span style="width: 240px;">合計</span>
+    <span style="width: 110px; text-align: right;">$19.95</span>
+    <span style="width: 110px; text-align: right;">¥3132</span>
+  </div>
+ </div>
 </div>
 
-<div id="sol1" class="page">
-  <h1>4</h1>
-  <p>test</p>
-</div>
-
-<div id="sol2" class="page">
-  <h1>5</h1>
-  <p>test</p>
-</div>
-
-<div id="sol3" class="page">
-  <h1>6</h1>
-  <p>test</p>
-</div>
 
 <script>
 const pages = [
   'home', 'member1', 'member2', 'member3', 'theme', 'background', 'purpose', 'goal', 'usecase',
   'device',
   'step1', 'step2-1', 'step2-2', 'step2-3', 'step3-1', 'step3-2', 'step4-1', 'step4-2', 'step4-3', 'step4-4', 'step4-5', 'step4-6', 'step4-7', 'step4-8',
-  'prob1', 'prob2', 'prob3',
-  'sol1', 'sol2', 'sol3'
+  'prob1', 'prob2', 'prob3'
 ];
 
 const pageTitles = [
@@ -1232,5 +1287,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </body>
 </html>
+
 
 
